@@ -1,38 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Righteous', cursive;
+  background-color: #FAEEE7;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 80%;
+  text-align: center;
+  background-color: #24A19C;
   color: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.main h1{
+  font-size: 4rem;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.main p {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .main h1{
+    font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+  .main p {
+    font-size: 1rem;
   }
 }

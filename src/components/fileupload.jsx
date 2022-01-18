@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import './fileupload.css';
+import { FaUpload } from 'react-icons/fa';
 
 function FileUpload() {
 
     const [file, setFile] = useState("");
     const [result, setResult] = useState({});
+    const [loading, setLoading] = useState(false);
 
     var formdata = new FormData();
     formdata.append("file", file);
@@ -23,20 +26,24 @@ function FileUpload() {
       fetch("https://file.io", requestOptions)
         .then(response => response.json())
         .then(result => setResult(result))
+        .then(() => setLoading(false))
         .catch(error => console.log('error', error));
     }
 
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div className="forminputs">
-          <label htmlFor="file">File :</label>
+    <div className="fileupload">
+      <form onSubmit={handleSubmit} className="forminputs">
+        <div >
+          <label className="custom-file-upload" htmlFor="file"><FaUpload/> Upload file</label>
           <input type="file" id="file" name="file" onChange={handleUpload} />
         </div>
-        <button type="submit">Submit</button>
+        <div className="displayname">
+          <p className="filename">{file.name}</p>
+          <button className="subbutton" onClick={file==="" ? () => {setLoading(false)} : () => {setLoading(true)}} type="submit">Submit</button>
+        </div>
       </form>
-      <p>{result.link}</p>
+      {loading ? <div class="lds-ring"><div></div><div></div><div></div><div></div></div> : <p className="filename">{result.link}</p>}
     </div>
   );
 
