@@ -1,3 +1,7 @@
+# Quick Share 
+
+A simple web app to share files of size upto 100mb with a single link.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
